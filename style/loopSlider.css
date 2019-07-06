@@ -1,0 +1,154 @@
+﻿body {
+    margin: 0;
+}
+
+.slider {
+    position: relative;
+    height: 400px;
+    width: 100%;
+    margin: 100px auto 0;
+    overflow: hidden;
+}
+
+    .slider > .items-wrapper > .item {
+        position: absolute;
+        top: 0;
+        height: 45%;
+        width: 25%;
+        transition: 0.5s;
+        opacity: 0.4;
+        cursor: pointer;
+        float: left;
+    }
+
+        .slider > .items-wrapper > .item.active {
+            width: 50%;
+            height: 70%;
+            opacity: 1;
+            cursor: auto;
+        }
+
+        .slider > .items-wrapper > .item > img {
+            height: 100%;
+            width: 90%;
+            display: block;
+            margin: auto;
+            border-radius: 20px;
+        }
+
+    .slider > .left-arrow {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        border-radius: 0 20px 20px 0;
+        height: 30px;
+        width: 25%;
+        cursor: pointer;
+        background: url("../image/left.png") rgba(50,50,50,0.1) no-repeat 50% 50%;
+        background-size: 40px;
+        transition: 0.3s;
+    }
+
+        .slider > .left-arrow:hover {
+            animation: left-arrow-anim 3s infinite linear;
+            background-color: rgba(50,50,50,0.3);
+        }
+
+@keyframes left-arrow-anim {
+    0% {
+        background-position: 50% 50%;
+    }
+
+    30% {
+        background-position: 10% 50%;
+    }
+
+    70% {
+        background-position: 90% 50%;
+    }
+
+    100% {
+        background-position: 50% 50%;
+    }
+}
+
+.slider > .right-arrow {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    border-radius: 20px 0 0 20px;
+    height: 30px;
+    width: 25%;
+    cursor: pointer;
+    background: url("../image/right.png") rgba(50,50,50,0.1) no-repeat 50% 50%;
+    background-size: 40px;
+    transition: 0.3s;
+}
+
+    .slider > .right-arrow:hover {
+        animation: right-arrow-anim 3s infinite linear;
+        background-color: rgba(50,50,50,0.3);
+    }
+
+@keyframes right-arrow-anim {
+    0% {
+        background-position: 50% 50%;
+    }
+
+    30% {
+        background-position: 90% 50%;
+    }
+
+    70% {
+        background-position: 10% 50%;
+    }
+
+    100% {
+        background-position: 50% 50%;
+    }
+}
+
+.slider > .autoplay {
+    position: absolute;
+    left: 50%;
+    bottom: 10px;
+    transform: translate(-50%) rotate(0deg);
+    background: url("../image/pause.png") rgba(50,50,50,0.5) no-repeat 50%;
+    background-size: 50px 30px;
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+    .slider > .autoplay.on {
+        background-color: #67fc00;
+        animation: autoplay-anim 2s infinite linear;
+    }
+
+@keyframes autoplay-anim {
+    0% {
+        transform: translate(-50%) rotate(0deg);
+    }
+
+    50% {
+        transform: translate(-50%) rotate(180deg);
+    }
+
+    100% {
+        transform: translate(-50%) rotate(360deg);
+    }
+}
+
+
+
+/*Responsive*/
+
+
+
+@media only screen and (max-height: 500px) {
+    .slider {
+        margin: 10px auto 0;
+    }
+}
